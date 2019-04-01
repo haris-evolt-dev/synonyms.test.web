@@ -33,6 +33,8 @@ namespace Synonyms.Test.Web.Controllers
         [HttpGet("Autocomplete")]
         public IEnumerable<string> GetAutoComplete([FromQuery]string query, [FromQuery]int? limit = null, [FromQuery]int? offset = null)
         {
+            if (string.IsNullOrEmpty(query))
+                return new string[0];
             if (limit != null && limit < 0)
                 throw new Exception("limit must be non negative integer!");
             if (offset != null && offset < 0)

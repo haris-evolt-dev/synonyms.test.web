@@ -55,6 +55,7 @@ namespace Synonyms.Test.Web
             }
 
             app.UseHttpsRedirection();
+            app.ConfigureExceptionHandler();
             app.UseMvc();
             app.UseSwagger(c =>
             {
